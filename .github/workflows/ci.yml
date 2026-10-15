@@ -1,6 +1,8 @@
 name: CI
 
-on: push
+on:
+  push:
+  pull_request:
 
 jobs:
   ci:
@@ -14,3 +16,5 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm test
+      - name: suíte embaralhada, 3 vezes
+        run: for i in 1 2 3; do npx vitest run --sequence.shuffle; done
