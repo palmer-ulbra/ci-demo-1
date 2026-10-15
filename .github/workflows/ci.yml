@@ -3,7 +3,7 @@ name: CI
 on: push
 
 jobs:
-ci:
-runs-on: ubuntu-latest
-steps:
-  -run: echo "Olá, CI"
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Olá, CI"
