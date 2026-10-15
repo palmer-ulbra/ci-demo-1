@@ -20,7 +20,7 @@ export const dentroDoPrazo = (periodo, agora = new Date()) => {
 };
 
 export const fimDaMatricula = (periodo) => {
-  return `Matrícula até ${new Date(periodo.fim_matricula).toLocaleDateString("pt-BR", { timeZone: "UTC" })}`;
+  return `Matrícula até ${new Date(periodo.fim_matricula).toLocaleDateString("pt-BR")}`;
 };
 
 // ── RN-5 · Créditos do semestre ─────────────────────────────────────────────
