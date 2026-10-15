@@ -6,4 +6,4 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Olá, CI"
+      - run: echo, exit 1
