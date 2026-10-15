@@ -4,13 +4,11 @@ import { cumprePreRequisito } from "../src/regras.js";
 const bd2 = { codigo: "BD-II", pre_requisito: "BD-I" };
 
 test("aprovada em BD-I, Marina pode cursar BD-II", async () => {
-  let pode;
-  cumprePreRequisito("marina", bd2).then((r) => (pode = r));
-
-  await new Promise((resolve) => setTimeout(resolve, 50)); // dá tempo do histórico responder
-  expect(pode).toBe(true);
-});
+  const aprovadoEmBD1 = async () => [{ codigo: "BD-I", situacao: "APROVADO" }];
+  expect(await cumprePreRequisito("marina", bd2, aprovadoEmBD1)).toBe(true);
+}, 30); // o teste tem 30 ms para terminar
 
 test("sem BD-I, João não pode cursar BD-II", async () => {
-  expect(await cumprePreRequisito("joao", bd2)).toBe(false);
+  const aprovadoEmBD1 = async () => [];
+  expect(await cumprePreRequisito("joao", bd2, aprovadoEmBD1)).toBe(false);
 });
